@@ -42,8 +42,9 @@ Things you may want to cover:
 |group_name|string||
 
 ### Association
- has_many :members
+- has_many :members
 - has_many :users, through: :members
+- has_many :messages
 
 ## messageテーブル
 |body|text||
