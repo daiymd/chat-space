@@ -27,7 +27,7 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|index: true|
+|name|string|index: true, null: false|
 |e_mail|string||
 |password|string||
 
@@ -39,7 +39,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
+|name|string|null: false|
 
 ### Association
 - has_many :members
@@ -47,10 +47,10 @@ Things you may want to cover:
 - has_many :messages
 
 ## messageテーブル
-|body|text||
-|image|string||
-|group_id|integer||
-|user_id|integer||
+|body|text|null: false|
+|image|string|null: false|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
