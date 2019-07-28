@@ -1,0 +1,50 @@
+.haml
+  .left__contents
+    .left__contents__header
+      .left__contents__header__user-name
+        name
+      .left__contents__header__icon
+        .left__contents__header__create-group
+          =link_to "" do
+            = fa_icon "edit"
+        .left__contents__header__user-edit
+          =link_to "" do
+            = fa_icon "cog"
+    .left__contents__group
+      .left__contents__group__name
+      = render partial: 'layouts/groups'
+      .left__contents__group__new-chat
+      aa
+
+
+  .right__contents
+    .right__contents__header
+      .right__contents__header__group
+        .right__contents__header__group-name
+          aaa
+        .right__contents__header__group-name-members
+          dai
+        .right__contents__header__group-edit
+          edit
+    .right__contents__chat
+      = render partial: 'layouts/chats'
+    .right__contents__form
+      .right__contents__form__text
+        =text_field :text, :file, class: "input"
+      .right__contents__form__image
+        %label
+          = fa_icon "image"
+          = file_field  :image, :file, class: "delete"
+        -# =link_to "" do
+          -# = fa_icon "image"
+      .right__contents__form__send
+        Send
+
+
+
+      -# .image
+      -#   =label :image
+      -#     = file_field :image
+      -#     = fa_icon "image"
+      -# .send
+      -#   sent
