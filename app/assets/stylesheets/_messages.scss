@@ -1,0 +1,129 @@
+*{
+  box-sizing: border-box;
+}
+
+.haml{
+  height: 100vh;
+  @include clearfix();
+}
+
+.left__contents {
+  float: left;
+  color: #ffffff;
+  width: 300px;
+  height: 100vh;
+  @include clearfix();
+  &__header{
+    background-color: $mainAmber;
+    height: 100px;
+    width: 300px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &__user-name{
+      font-size: 16px;
+    }
+    &__icon{
+      display: flex;
+      position: absolute;
+      right: 20px;
+    }
+  }
+  &__group{
+    height: calc(100vh - 100px);
+    background-color: $subAmber;
+    padding: 20px;
+    &__name{
+      font-size: 15px;
+    }
+    &__new-chat{
+      font-size: 11px;
+    }
+  }
+}
+
+
+
+.right__contents{
+  float: left;
+  width: calc(100vw - 300px);
+  @include clearfix();
+  &__header{
+    position: relative;
+    width: calc(100vw - 300px);
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    border-bottom: solid 1px #eeeeee;
+    &__group-name{
+      padding-top: 35px;
+      font-size: 20px;
+      &__members{
+        font-size: 12px;
+      }
+    }
+    &__group-edit{
+      position: absolute;
+      right: 40px;
+      top: 28px;
+      border: thin solid #38AEF0;
+      padding: 5px 20px;
+      color: #38AEF0;
+    }
+  }
+  &__chat{
+    background-color: $BackCollor;
+    width: calc(100vw - 300px);
+    height: calc(100vh - 190px);
+    display: block;
+    padding: 0 40px;
+  }
+  &__form{
+    background-color: gainsboro;
+    width: calc(100vw - 300px);
+    height: 90px;
+    display: flex;
+    padding: 0 40px;
+    &__text{
+      line-height: 90px;
+    }
+    &__image{
+      position: relative;
+      right: 30px;
+      line-height: 90px;
+
+    }
+    &__send{
+      width: 100px;
+      height: 50px;
+      padding: 10px 30px;
+      margin-top: 20px;
+      background-color: #38AEF0;
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+}
+
+.delete{
+  display: none;
+}
+.input{
+  height: 50px;
+  width: 650px;
+}
+
+.name{
+  float: left;
+  font-size: 16px;
+  padding: 46px 0 40px 0;
+  &__day{
+    float: right;
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  &__text{
+    font-size: 14px;
+  }
+}
