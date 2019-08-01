@@ -7,6 +7,7 @@
   @include clearfix();
 }
 
+// 左の部分(ユーザーネーム、グループ一覧)
 .left__contents {
   float: left;
   color: #ffffff;
@@ -28,6 +29,12 @@
       display: flex;
       position: absolute;
       right: 20px;
+      &__create-group{
+        color: #ffffff;
+      }
+      &__user-edit{
+
+      }
     }
   }
   &__group{
@@ -39,12 +46,14 @@
     }
     &__new-chat{
       font-size: 11px;
+      padding-top: 5px;
+      padding-bottom: 40px;
     }
   }
 }
 
 
-
+// 右の部分(表示されているグループ、チャット部分、メッセージ入力)
 .right__contents{
   float: left;
   width: calc(100vw - 300px);
@@ -77,28 +86,27 @@
     width: calc(100vw - 300px);
     height: calc(100vh - 190px);
     display: block;
-    padding: 0 40px;
+    overflow: scroll;
+    padding: 46px 40px 0 40px;
   }
   &__form{
     background-color: gainsboro;
     width: calc(100vw - 300px);
     height: 90px;
-    display: flex;
     padding: 0 40px;
-    &__text{
-      line-height: 90px;
-    }
+    position: relative;
     &__image{
+      display: inline-block;
       position: relative;
-      right: 30px;
+      right: 35px;
       line-height: 90px;
-
     }
     &__send{
+      display: inline-block;
+      position: absolute;
+      top: 20px;
       width: 100px;
       height: 50px;
-      padding: 10px 30px;
-      margin-top: 20px;
       background-color: #38AEF0;
       color: #ffffff;
       text-align: center;
@@ -106,24 +114,55 @@
   }
 }
 
-.delete{
+// ファイル投稿フォームを消す
+.hidden{
   display: none;
 }
-.input{
-  height: 50px;
-  width: 650px;
-}
 
-.name{
-  float: left;
-  font-size: 16px;
-  padding: 46px 0 40px 0;
-  &__day{
-    float: right;
+.upper-message{
+  display: flex;
+  &__date{
     font-size: 12px;
+    padding-top: 5px;
     padding-left: 10px;
   }
-  &__text{
-    font-size: 14px;
-  }
+}
+.lower-message{
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+// .name{
+//   float: left;
+//   font-size: 16px;
+//   padding: 46px 0 40px 0;
+//   &__day{
+//     float: right;
+//     font-size: 12px;
+//     padding-left: 10px;
+//   }
+//   &__text{
+//     font-size: 14px;
+//   }
+// }
+
+// グループのエディットボタン
+.edit{
+  text-decoration: none;
+  color: #38AEF0;
+}
+
+// メッセージの入力フォーム関連
+.form__submit{
+  display: inline-block;
+      width: 100px;
+      height: 50px;
+      background-color: #38AEF0;
+      color: #ffffff;
+      text-align: center;
+}
+.form__message{
+  width: 85%;
+  line-height: 50px;
+  font-size: 16px;
+  position: relative;
 }

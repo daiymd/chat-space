@@ -1,0 +1,58 @@
+*{
+  box-sizing: border-box;
+}
+
+.haml{
+  height: 100vh;
+  @include clearfix();
+}
+
+.left__contents {
+  float: left;
+  color: #ffffff;
+  width: 300px;
+  height: 100vh;
+  @include clearfix();
+  &__header{
+    background-color: $mainAmber;
+    height: 100px;
+    width: 300px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    &__user-name{
+      font-size: 16px;
+    }
+    &__icon{
+      display: flex;
+      position: absolute;
+      right: 20px;
+    }
+  }
+  &__group{
+    height: calc(100vh - 100px);
+    background-color: $subAmber;
+    padding: 20px;
+    &__name{
+      font-size: 15px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+    &__new-chat{
+      font-size: 11px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+}
+
+.group_message{
+  text-decoration: none;
+}
+.icon-1{
+  color: #ffffff;
+}
+.icon-2{
+  color: #ffffff;
+}
