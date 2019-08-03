@@ -7,12 +7,7 @@ $(function(){
   });
 
   function buildMessage(message){
-    if (message.image != null){
-      var image = `<img src = '${message.image}'>`
-    } 
-    else{
-      var image = ``
-    }
+    message.image != null ? image = `<img src = '${message.image}'>` : image = ``
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
@@ -26,7 +21,9 @@ $(function(){
                     <p class="lower-message__content">
                       ${message.content}
                     </p>
-                    ${image}
+                    <p class="lower-image">
+                      ${image}
+                    </p>
                   </div>
                 </div>`
 
@@ -48,8 +45,9 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.right__contents__chat').append(html)
-      $('#message_content').val('')
+      $('.form__message').val('')
       $('.form__submit').removeAttr("disabled");
+      $('#new_message')[0].reset();
     })
     .fail(function(){
       alert('エラー')
