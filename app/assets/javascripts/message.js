@@ -45,7 +45,6 @@ $(function(){
     .done(function(message){
       var html = buildMessage(message);
       $('.right__contents__chat').append(html)
-      $('.form__message').val('')
       $('.form__submit').removeAttr("disabled");
       $('#new_message')[0].reset();
     })
