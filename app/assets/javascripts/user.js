@@ -45,9 +45,6 @@ $(function() {
         appendProduct(user);
       });
     }
-    else {
-      console.log(input);
-    }
     })
     .fail(function(){
       alert('ユーザー検索に失敗しました')
