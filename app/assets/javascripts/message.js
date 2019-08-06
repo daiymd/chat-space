@@ -8,7 +8,7 @@ $(function(){
 
   function buildMessage(message){
     message.image != null ? image = `<img src = '${message.image}'>` : image = ``
-    var html = `<div class="message">
+    var html = `<div class="message" id="num" data-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       ${message.name}
@@ -26,7 +26,6 @@ $(function(){
                     </p>
                   </div>
                 </div>`
-
     return html;
   }
 
@@ -53,4 +52,33 @@ $(function(){
       $('.form__submit').removeAttr("disabled");
     })
   })
+
+  var group_id = $(".right__contents__header__group-name").data('id');
+  var group_url = `/groups/${group_id}/api/messages`
+  if (group_url = location.pathname) {
+  var reloadMessages = function() {
+    last_message_id = $(".message:last").data('id');
+    $.ajax({
+      url: `/groups/${group_id}/api/messages`,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+        messages.forEach(function(message){
+          if (message.id > last_message_id){
+              insertHTML += buildMessage(message)
+              $('.right__contents__chat').append(insertHTML);
+          }
+        });
+      
+      $('.right__contents__chat').animate({scrollTop: $('.right__contents__chat')[0].scrollHeight}, 'fast');
+    })
+    .fail(function() {
+      alert.('error');
+    });
+  };
+  setInterval(reloadMessages, 5000);
+}
 });

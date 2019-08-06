@@ -22,7 +22,7 @@
   .right__contents
     .right__contents__header
       .right__contents__header__group
-        .right__contents__header__group-name
+        .right__contents__header__group-name{data: {id: @group.id}}
           = @group.name
         .right__contents__header__group-name-members
           - @group.users.each do |user|
