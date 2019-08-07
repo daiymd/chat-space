@@ -25,8 +25,10 @@
         .right__contents__header__group-name{data: {id: @group.id}}
           = @group.name
         .right__contents__header__group-name-members
+          %p Members:
           - @group.users.each do |user|
-            = user.name
+            %p.members
+              = user.name
         .right__contents__header__group-edit
           = link_to edit_group_path(@group.id), class:"edit" do
             edit

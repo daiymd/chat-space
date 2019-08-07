@@ -1,10 +1,10 @@
 $(function(){
 // 最下部までスクロール
-  $(function() {
-    $('.form__submit').click(function() {
-      $('.right__contents__chat').animate({scrollTop: $('.right__contents__chat')[0].scrollHeight}, 'fast');
-    });
-  });
+  // $(function() {
+  //   $('.form__submit').click(function() {
+  //     $('.right__contents__chat').animate({scrollTop: $('.right__contents__chat')[0].scrollHeight}, 'fast');
+  //   });
+  // });
 
   function buildMessage(message){
     message.image != null ? image = `<img src = '${message.image}'>` : image = ``
@@ -43,7 +43,8 @@ $(function(){
     })
     .done(function(message){
       var html = buildMessage(message);
-      $('.right__contents__chat').append(html)
+      $('.right__contents__chat').append(html);
+      $('.right__contents__chat').animate({scrollTop: $('.right__contents__chat')[0].scrollHeight}, 'fast');
       $('.form__submit').removeAttr("disabled");
       $('#new_message')[0].reset();
     })
@@ -55,12 +56,12 @@ $(function(){
 
   var group_id = $(".right__contents__header__group-name").data('id');
   var group_url = `/groups/${group_id}/api/messages`
-  if (group_url = location.pathname) {
+  if (window.location.href.match(/\/groups\/\d+\/messages/)) {
   var reloadMessages = function() {
     last_message_id = $(".message:last").data('id');
     $.ajax({
       url: `/groups/${group_id}/api/messages`,
-      type: 'get',
+      type: 'GET',
       dataType: 'json',
       data: {id: last_message_id}
     })
@@ -68,15 +69,15 @@ $(function(){
       var insertHTML = '';
         messages.forEach(function(message){
           if (message.id > last_message_id){
-              insertHTML += buildMessage(message)
+              insertHTML += buildMessage(message);
               $('.right__contents__chat').append(insertHTML);
+              var scroll = $('.right__contents__chat').scrollTop();
+              $('.right__contents__chat').animate({scrollTop: scroll + 500}, 'fast');
           }
         });
-      
-      $('.right__contents__chat').animate({scrollTop: $('.right__contents__chat')[0].scrollHeight}, 'fast');
     })
     .fail(function() {
-      alert.('error');
+      alert('error');
     });
   };
   setInterval(reloadMessages, 5000);
