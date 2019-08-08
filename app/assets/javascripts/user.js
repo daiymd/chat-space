@@ -45,6 +45,12 @@ $(function() {
         appendProduct(user);
       });
     }
+    else {
+      var unexpect = `<div class="chat-group-user clearfix">
+                        一致するユーザーがいません
+                      </div>`
+                      serach_result.append(unexpect)
+    }
     })
     .fail(function(){
       alert('ユーザー検索に失敗しました')
