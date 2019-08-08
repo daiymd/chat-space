@@ -1,10 +1,4 @@
 $(function(){
-// 最下部までスクロール
-  // $(function() {
-  //   $('.form__submit').click(function() {
-  //     $('.right__contents__chat').animate({scrollTop: $('.right__contents__chat')[0].scrollHeight}, 'fast');
-  //   });
-  // });
 
   function buildMessage(message){
     message.image != null ? image = `<img src = '${message.image}'>` : image = ``
